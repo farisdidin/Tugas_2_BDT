@@ -58,3 +58,13 @@
 * Daftar tabel yang akan dipartisi adalah:
     * Tabel payment.
     * Tabel rental.
+
+#### Tabel payment
+* Jenis partisi yang digunakan adalah : HASH
+* Karena menggunakan partisi HASH maka tidask perlu menentukan predikat partisi.
+* Tabel akan dibagi kedalam 5 partisi yakni :
+    1. p0
+    2. p1
+    3. p2
+    4. p3
+    5. p4
