@@ -63,11 +63,11 @@
 * Jenis partisi yang digunakan adalah : HASH
 * Karena menggunakan partisi HASH maka tidask perlu menentukan predikat partisi.
 * Tabel akan dibagi kedalam 5 partisi yakni :
-    1. p0
-    2. p1
-    3. p2
-    4. p3
-    5. p4
+    1. p0 = berisikan record dengan payment_id berakhiran 0 dan 5.
+    2. p1 = berisikan record dengan payment_id berakhiran 1 dan 6.
+    3. p2 = berisikan record dengan payment_id berakhiran 2 dan 7.
+    4. p3 = berisikan record dengan payment_id berakhiran 3 dan 8.
+    5. p4 = berisikan record dengan payment_id berakhiran 4 dan 9.
 
 #### Implementasi Partisi
 
@@ -121,9 +121,9 @@ ALTER TABLE rental
 	PARTITIONS 5;
 ```
 #### BENCHMARKING
-    karena partisi yang digunakan adalah hash dari payment_id dan merupakan kolom yang auto increment, untuk insert data tidak perlu spesifik ke tabel partisi. Cukup dengan insert langsung ke tabel utama data akan otomatis dimasukkan ke dalam partisi sesua dengan payment id.
+karena partisi yang digunakan adalah hash dari payment_id dan merupakan kolom yang auto increment, untuk insert data tidak perlu spesifik ke tabel partisi. Cukup dengan insert langsung ke tabel utama data akan otomatis dimasukkan ke dalam partisi sesua dengan payment id.
 
-memasukkan record baru ke dalam tabel 
+Memasukkan record baru ke dalam tabel 
 ```SQL
 insert into sakila.payment (customer_id, staff_id, rental_id, amount, payment_date) values
 (118,2,null,'4.00','2018-09-22 11:55:20'),
