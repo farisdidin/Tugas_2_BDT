@@ -145,6 +145,15 @@ select * from sakila.payment partition(p0) where payment_id = 16050 limit 10;
 ```
 hasilnya : 
 ![alt text](https://github.com/farisdidin/Tugas_2_BDT/blob/master/images/data_ada.png)
+karena payment_id berakhiran angka 0 dan partisi yang dipilih ada 'p0' maka record dapat ditampilkan.
+
+2. Cek data yang tidak ada dalam tabel.
+```SQL
+select * from sakila.payment partition(p1) where payment_id = 16050 limit 10;
+```
+hasilnya :
+![alt text](https://github.com/farisdidin/Tugas_2_BDT/blob/master/images/data_tidak_ada.png)
+karena payment_id berakhiran angka 0 dan partisi yang dipilih ada 'p1' maka tidak ada yang ditampilkan (kosong).
 
 ## Implementasi Partisi 2 : measures dataset
 ### Deskripsi Dataset
