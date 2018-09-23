@@ -120,7 +120,24 @@ ALTER TABLE rental
 	PARTITION BY HASH(rental_id)
 	PARTITIONS 5;
 ```
+#### BENCHMARKING
+    karena partisi yang digunakan adalah hash dari payment_id dan merupakan kolom yang auto increment, untuk insert data tidak perlu spesifik ke tabel partisi. Cukup dengan insert langsung ke tabel utama data akan otomatis dimasukkan ke dalam partisi sesua dengan payment id.
 
+memasukkan record baru ke dalam tabel 
+```SQL
+insert into sakila.payment (customer_id, staff_id, rental_id, amount, payment_date) values
+(118,2,null,'4.00','2018-09-22 11:55:20'),
+(118,2,null,'4.07','2016-09-22 12:23:00'),
+(118,2,null,'4.21','2016-09-22 13:23:00'),
+(118,2,null,'4.11','2016-09-22 13:25:00'),
+(118,2,null,'3.20','2016-09-22 13:30:00'),
+(118,2,null,'2.20','2016-09-22 14:00:00'),
+(118,1,null,'3.20','2016-09-22 14:50:00'),
+(118,1,null,'5.20','2016-09-22 14:59:00'),
+(118,1,null,'1.23','2016-09-22 15:10:00'),
+(118,1,null,'3.21','2016-09-22 15:19:00');
+
+```
 
 ## Implementasi Partisi 2 : measures dataset
 ### Deskripsi Dataset
