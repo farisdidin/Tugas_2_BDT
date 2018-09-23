@@ -120,3 +120,49 @@ ALTER TABLE rental
 	PARTITION BY HASH(rental_id)
 	PARTITIONS 5;
 ```
+
+
+## Implementasi Partisi 2 : measures dataset
+### Deskripsi Dataset
+* dataset terdiri dari dua tabel yakni :
+    * measures
+    * measures_partitioned (bentuk partisi dari tabel measures)
+
+* sumber dataset
+    http://www.vertabelo.com/blog/technical-articles/everything-you-need-to-know-about-mysql-partitions 
+
+### Import Dataset
+1. Download dataset dari yang disebutkan diatas.
+2. masuk ke command line mysql 
+    ```bash
+        mysql -u root -p
+    ```
+3. buat database bernama measures
+    ```sql
+        CREATE DATABASE measures;
+    ```
+4. keluar dari command line mysql.
+5. import database yang sudah didownload.
+    ```SQL
+        mysql -u root -p -D measures < {nama file sql}
+    ```
+    contoh file sql bernama sample_measure.sql
+    ```SQL
+        mysql -u root -p -D measures < sample_measure.sql
+    ```
+
+### BENCHMARKING
+
+#### SELECT
+|No. Pengujian|Tabel Tanpa Partisi | Tabel dengan Partisi|
+|---|---|---|
+|1|||
+|2|||
+|3|||
+|4|||
+|5|||
+|6|||
+|7|||
+|8|||
+|9|||
+|10|||
