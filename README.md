@@ -144,6 +144,7 @@ cek record (data dalam tabel)
 select * from sakila.payment partition(p0) where payment_id = 16050 limit 10;
 ```
 hasilnya : 
+
 ![alt text](https://github.com/farisdidin/Tugas_2_BDT/blob/master/images/data_ada.png)
 karena payment_id berakhiran angka 0 dan partisi yang dipilih ada 'p0' maka record dapat ditampilkan.
 
@@ -152,6 +153,7 @@ karena payment_id berakhiran angka 0 dan partisi yang dipilih ada 'p0' maka reco
 select * from sakila.payment partition(p1) where payment_id = 16050 limit 10;
 ```
 hasilnya :
+
 ![alt text](https://github.com/farisdidin/Tugas_2_BDT/blob/master/images/data_tidak_ada.png)
 karena payment_id berakhiran angka 0 dan partisi yang dipilih ada 'p1' maka tidak ada yang ditampilkan (kosong).
 
@@ -187,15 +189,27 @@ karena payment_id berakhiran angka 0 dan partisi yang dipilih ada 'p1' maka tida
 ### BENCHMARKING
 
 #### SELECT
-|No. Pengujian|Tabel Tanpa Partisi | Tabel dengan Partisi|
+|No.|Tabel Tanpa Partisi | Tabel dengan Partisi|
 |---|---|---|
-|1|||
-|2|||
-|3|||
-|4|||
-|5|||
-|6|||
-|7|||
-|8|||
-|9|||
-|10|||
+|1|1,840|1,110|
+|2|1,101|0,780|
+|3|0,960|0,692|
+|4|0,986|0,689|
+|5|0,998|0,657|
+|6|1,011|0,688|
+|7|1,003|0,628|
+|8|0,967|0,669|
+|9|0,922|0,688|
+|10|0,919|0,619|
+|Rata-rata|1,0707|0,722|
+
+#### BIG DELETE
+|No.|Rows|Tabel Tanpa Partisi | Tabel dengan Partisi|
+|---|---    |---    |---|
+|1. |85314  |1,021	|0,128
+|2. |988644 |46,556	|0,228
+|3. |772166 |33,075 |0,145	
+
+### CONCLUSION
+* dari percobaan select dapat disimpulkan bahwa select dari tabel yang dipartisi lebih cepat (hampir 2 kali lebih cepat) daripada select dari tabel tanpa partisi.
+* dari percobaan big delete dapat disimpulkan bahwa delete data yang banyak lebih cepat menggunakan tabel yang dipartisi karena cukup dengan drop partisi yang ingin dihapus.
