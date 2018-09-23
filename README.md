@@ -121,7 +121,7 @@ ALTER TABLE rental
 	PARTITIONS 5;
 ```
 #### BENCHMARKING
-karena partisi yang digunakan adalah hash dari payment_id dan merupakan kolom yang auto increment, untuk insert data tidak perlu spesifik ke tabel partisi. Cukup dengan insert langsung ke tabel utama data akan otomatis dimasukkan ke dalam partisi sesua dengan payment id.
+Karena partisi yang digunakan adalah hash dari payment_id dan merupakan kolom yang auto increment, untuk insert data tidak perlu spesifik ke tabel partisi. Cukup dengan insert langsung ke tabel utama data akan otomatis dimasukkan ke dalam partisi sesua dengan payment id.
 
 Memasukkan record baru ke dalam tabel 
 ```SQL
@@ -138,6 +138,13 @@ insert into sakila.payment (customer_id, staff_id, rental_id, amount, payment_da
 (118,1,null,'3.21','2016-09-22 15:19:00');
 
 ```
+cek record (data dalam tabel)
+1. cek data yang ada dalam tabel.
+```SQL
+select * from sakila.payment partition(p0) where payment_id = 16050 limit 10;
+```
+hasilnya : 
+![alt text](https://github.com/farisdidin/Tugas_2_BDT/blob/master/images/data_ada.png)
 
 ## Implementasi Partisi 2 : measures dataset
 ### Deskripsi Dataset
