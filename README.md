@@ -204,12 +204,19 @@ karena payment_id berakhiran angka 0 dan partisi yang dipilih ada 'p1' maka tida
 |Rata-rata|1,0707|0,722|
 
 #### BIG DELETE
-|No.|Rows|Tabel Tanpa Partisi | Tabel dengan Partisi|
+|No.|Tabel Tanpa Partisi | Tabel dengan Partisi|Rows|
 |---|---    |---    |---|
-|1. |85314  |1,021	|0,128
-|2. |988644 |46,556	|0,228
-|3. |772166 |33,075 |0,145	
-
+|1.|1,021	|0,128	|85314|
+|2.|1,297	|0,276	|85314|
+|3.|1,228	|0,125	|85314|
+|4.|1,250	|0,258	|85314|
+|5.|1,295	|0,200	|85314|
+|6.|1,262	|0,130	|85314|
+|7.|1,391	|0,106	|85314|
+|8.|1,447	|0,274	|85314|
+|9.|1,283	|0,165	|85314|
+|10.|1,374	|0,132	|85314|
+|Rata - rata|1,285	|0,179	|85314|
 ### CONCLUSION
 * dari percobaan select dapat disimpulkan bahwa select dari tabel yang dipartisi lebih cepat (hampir 2 kali lebih cepat) daripada select dari tabel tanpa partisi.
 * dari percobaan big delete dapat disimpulkan bahwa delete data yang banyak lebih cepat menggunakan tabel yang dipartisi karena cukup dengan drop partisi yang ingin dihapus.
