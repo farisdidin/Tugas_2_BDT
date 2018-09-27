@@ -189,7 +189,7 @@ karena payment_id berakhiran angka 0 dan partisi yang dipilih ada 'p1' maka tida
 ### BENCHMARKING
 
 #### SELECT
-|No.|Tabel Tanpa Partisi | Tabel dengan Partisi|
+|No.|Tabel Tanpa Partisi (detik) | Tabel dengan Partisi (detik)|
 |---|---|---|
 |1|1,840|1,110|
 |2|1,101|0,780|
@@ -204,7 +204,7 @@ karena payment_id berakhiran angka 0 dan partisi yang dipilih ada 'p1' maka tida
 |Rata-rata|1,0707|0,722|
 
 #### BIG DELETE
-|No.|Tabel Tanpa Partisi | Tabel dengan Partisi|Rows|
+|No.|Tabel Tanpa Partisi (detik)| Tabel dengan Partisi (detik)|Rows|
 |---|---    |---    |---|
 |1.|1,021	|0,128	|85314|
 |2.|1,297	|0,276	|85314|
